@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"="width=device-width, initial-scale=1.0">
+    <title>Registration Test Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <section class="form-section">
+            <h2>Registration Test Details</h2>
+            <hr class="section-divider">
+            <form action="/submit" method="POST" enctype="multipart/form-data">
+                <!-- Add hidden fields to include data from register.ejs -->
+                <input type="hidden" name="registerData" value='<%= JSON.stringify(registerData) %>'>
+                <!-- Add hidden fields to store selected tests and profiles -->
+                <input type="hidden" name="selectedTests" id="selectedTests">
+                <input type="hidden" name="selectedProfiles" id="selectedProfiles">
+                <!-- Searchable Lab Name Field -->
+                <div class="form-group" style="position: relative;">
+                    <label for="centerName">Lab Name <span class="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="centerName" 
+                        name="centerName" 
+                        placeholder="Search Lab Name" 
+                        autocomplete="off" 
+                        class="search-input"
+                        oninput="suggestLabNames(event)">
+                    <div id="centerNameSuggestions" class="suggestions-list"></div>
+                    <input type="hidden" name="centerId" id="centerId" required>
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="referName">Refer Name <span class="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="referName" 
+                        name="referName" 
+                        placeholder="Search Refer Name" 
+                        autocomplete="off" 
+                        class="search-input"
+                        oninput="suggestReferNames(event)">
+                    <div id="referNameSuggestions" class="suggestions-list"></div>
+                    <input type="hidden" name="referedId" id="referedId" required>
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="doctorName">Doctor Name</label>
+                    <input 
+                        type="text" 
+                        id="doctorName" 
+                        name="doctorName" 
+                        placeholder="Search Doctor Name" 
+                        autocomplete="off" 
+                        class="search-input"
+                        oninput="suggestDoctorNames(event)">
+                    <div id="doctorNameSuggestions" class="suggestions-list"></div>
+                    <input type="hidden" name="doctorId" id="doctorId">
+                </div>
+                <div class="form-group wide-input" style="position: relative;">
+                    <label for="testProfile">Select Test & Profile</label>
+                    <input 
+                        type="text" 
+                        id="testProfile" 
+                        name="testProfile" 
+                        placeholder="Search Test or Profile" 
+                        autocomplete="off" 
+                        class="search-input"
+                        oninput="suggestTestsAndProfiles(event)">
+                    <div id="testProfileSuggestions" class="suggestions-container"></div>
+                    <div id="selectedTestsProfiles" class="selected-items">
+                        <!-- Selected tests and profiles will be displayed here -->
+                    </div>
+                </div>
+                <div class="form-group" style="position: relative;">
+                    <label for="grossAmount">Gross Amount (₹)</label>
+                    <input 
+                        type="number" 
+                        id="grossAmount" 
+                        name="grossAmount" 
+                        placeholder="Enter Gross Amount" 
+                        class="search-input">
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="visitingCharges">Visiting Charges (₹)</label>
+                    <input 
+                        type="number" 
+                        id="visitingCharges" 
+                        name="visitingCharges" 
+                        placeholder="Enter Visiting Charges" 
+                        class="search-input"  
+                        min="0">
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="discountAmount">Discount Amount (₹)</label>
+                    <input 
+                        type="number" 
+                        id="discountAmount" 
+                        name="discountAmount" 
+                        placeholder="Enter Discount Amount" 
+                        class="search-input"
+                        oninput="updateNetAmount()">
+                    <div id="discountError" class="error-msg" style="display: none;">Discount cannot exceed Gross Amount.</div>
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="netAmount">Net Amount (₹)</label>
+                    <input 
+                        type="number" 
+                        id="netAmount" 
+                        name="netAmount" 
+                        placeholder="Net Amount" 
+                        class="search-input" 
+                        readonly>
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="paymentMode">Payment Mode</label>
+                    <select id="paymentMode" name="paymentMode" class="search-input" required>
+                        <option value="" disabled selected>Select Payment Mode</option>
+                        <% paymentModes.forEach(mode => { %>
+                            <option value="<%= mode.PayModeID %>"><%= mode.PaymentMode %></option>
+                        <% }); %>
+                    </select>
+                    <div id="paymentModeError" class="error-msg" style="display: none;">Please select a payment mode.</div>
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="paidAmount">Paid Amount (₹)</label>
+                    <input 
+                        type="number" 
+                        id="paidAmount" 
+                        name="paidAmount" 
+                        placeholder="Enter Paid Amount" 
+                        class="search-input"
+                        oninput="validatePaidAmount()">
+                    <div id="paidAmountError" class="error-msg" style="display: none;">Paid amount cannot exceed Net Amount.</div>
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="balanceAmount">Balance Amount (₹)</label>
+                    <input 
+                        type="number" 
+                        id="balanceAmount" 
+                        name="balanceAmount" 
+                        placeholder="Balance Amount" 
+                        class="search-input" 
+                        readonly>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="clear-btn" onclick="clearSelections()">Clear</button>
+                    <button type="submit" class="register-btn">Register</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <!-- Include the scripts.js file -->
+    <script src="/scripts.js"></script>
+</body>
+</html>

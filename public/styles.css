@@ -1,0 +1,537 @@
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --background-color: #f0f2f5;
+  --white: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color); /* Use the existing background color */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+  width: 100%; /* Full width of the screen */
+  max-width: 1200px; /* Optional: Set a max width for readability */
+  height: 100%; /* Full height of the screen */
+  background: var(--white);
+  padding: 20px; /* Add some padding for spacing */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allow scrolling inside the container if content overflows */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px; /* Reduced margin */
+  font-size: 18px; /* Reduced font size */
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Reduced gap */
+}
+
+.form-group {
+  width: calc(33.333% - 10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 12px; /* Reduced font size */
+  margin-bottom: 3px; /* Reduced margin */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 6px; /* Reduced padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px; /* Reduced font size */
+}
+
+.form-group textarea {
+  resize: none;
+  height: 40px; /* Reduced height */
+}
+
+.address {
+  width: 100%;
+}
+
+.file-upload {
+  width: 48%;
+}
+
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 10px; /* Reduced padding */
+  text-align: center;
+  border-radius: 5px;
+  font-size: 12px; /* Reduced font size */
+}
+
+.upload-box button {
+  border: none;
+  background: blue;
+  color: white;
+  padding: 5px 10px;
+  margin-top: 5px; /* Reduced margin */
+  cursor: pointer;
+  font-size: 12px; /* Reduced font size */
+}
+
+.form-actions {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.next-btn {
+  background: blue;
+  color: white;
+  padding: 8px 15px; /* Reduced padding */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Reduced font size */
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 12px; /* Reduced font size */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 20px var(--shadow-color);
+  width: 350px;
+  text-align: center;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+.form-group #salutation {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-group #gender {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-group #dob,
+.form-group #age {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group #email,
+.form-group #phone,
+.form-group #countryCode {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group #countryCode {
+    width: 30%;
+}
+
+.form-group #phone {
+    width: 70%;
+}
+
+/* Suggestions container styles */
+.suggestions-container {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the container is as wide as the input field */
+    margin-top: 5px; /* Add some space between the input field and the suggestions */
+}
+
+/* Individual suggestion item styles */
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Selected items container styles */
+.selected-items {
+    margin-top: 10px;
+}
+
+.selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.remove-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #ff1a1a;
+}
+
+.form-group #address,
+.form-group #city,
+.form-group #district,
+.form-group #state,
+.form-group #pin,
+.form-group #country,
+.form-group #nationality {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Red star for mandatory fields */
+.required {
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Error message styling */
+.error-msg {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Highlight fields with errors */
+.error-border {
+    border: 2px solid red;
+}
+
+/* Search input styling */
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Suggestions list styling */
+.suggestions-list {
+    position: absolute; /* Position the suggestions absolutely */
+    top: 100%; /* Position it directly below the input field */
+    left: 0; /* Align it with the left edge of the input field */
+    z-index: 1000; /* Ensure it appears above other elements */
+    background-color: #fff; /* White background for suggestions */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-height: 150px; /* Limit the height */
+    overflow-y: auto; /* Add scroll if suggestions exceed max height */
+    width: 100%; /* Match the width of the input field */
+    display: none; /* Initially hidden */
+}
+
+/* Suggestion item styling */
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
+
+/* No result styling */
+.no-result {
+    padding: 10px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+
+/* Horizontal line styling */
+.section-divider {
+    border: none;
+    border-top: 2px solid #ccc; /* Light gray color */
+    margin: 10px 0 20px; /* Add spacing above and below */
+    width: 100%; /* Full width */
+}
+
+/* Selected items styling */
+.selected-items {
+    margin-top: 10px;
+}
+
+.selected-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.remove-btn {
+    width: none;
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.clear-btn {
+    background-color: #ff4d4d;
+    font-size: 14px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* General button styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding for consistent height */
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Default button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Clear button specific styling */
+.clear-btn {
+    background-color: #dc3545; /* Red color for clear button */
+}
+
+.clear-btn:hover {
+    background-color: #a71d2a; /* Darker red on hover */
+}
+
+/* Clear button specific styling */
+#clearSelections {
+    background-color: #dc3545; /* Red color for clear button */
+}
+
+#clearSelections:hover {
+    background-color: #a71d2a; /* Darker red on hover */
+}
+
+/* Limit the width of the "Select Test & Profile" field */
+#testProfile {
+    max-width: 100%; /* Ensure it doesn't exceed the container's width */
+    width: 100%; /* Make it responsive to the container */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+#testProfileSuggestions {
+    max-width: 100%; /* Match the width of the input field */
+    width: 100%; /* Ensure it aligns with the input field */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.wide-input {
+  width: calc(3 * 380px + 10px); /* Adjust width based on the three input fields */
+  max-width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#paymentMode{
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#paidAmount {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#grossAmount,
+#visitingCharges,
+#discountAmount,
+#netAmount {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+register-btn{
+  background: blue;
+  color: white;
+  padding: 8px 15px; /* Reduced padding */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Reduced font size */
+}
+
+/* Styles specific to login.ejs */
+.login-container .form-group {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.login-container input {
+  display: block;
+  width: 100%;
+}
+
+/* Ensure labels are stacked */
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+}

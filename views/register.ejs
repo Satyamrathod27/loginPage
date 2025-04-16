@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <section class="form-section">
+            <h2>Patient Registration</h2>
+            <hr class="section-divider">
+            <form action="/register" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="salutation">Salutation</label>
+                    <select name="salutation" id="salutation" required>
+                        <% salutations.forEach(salutation => { %>
+                            <option value="<%= salutation.ID %>"><%= salutation.Salutation %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="visitNo">Visit No</label>
+                    <input type="text" name="visitNo" id="visitNo" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="registrationDateTime">Registration Date & Time</label>
+                    <input type="datetime-local" name="registrationDateTime" id="registrationDateTime" readonly required>
+                </div>
+                <div class="form-group" id="patientUIDContainer">
+                    <label>Patient UID</label>
+                    <input type="text" name="patientUID" id="patientUID" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Patient Name <span class="required">*</span></label>
+                    <input 
+                        type="text" 
+                        name="patientName" 
+                        id="patientName" 
+                        required 
+                        minlength="2" 
+                        pattern="[A-Z ]+" 
+                        title="Only uppercase letters and spaces are allowed"
+                        oninput="this.value = this.value.toUpperCase();"
+                        placeholder="Enter patient name in capital letters">
+                    <small class="error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender <span class="required">*</span></label>
+                    <select name="gender" id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <small class="error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth (DOB) <span class="required">*</span></label>
+                    <input type="date" name="dob" id="dob" placeholder="Enter Date of Birth" required>
+                    <small class="error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input 
+                        type="number" 
+                        name="age" 
+                        id="age" 
+                        placeholder="Enter Age" 
+                        min="0" 
+                        max="150" 
+                        required 
+                        oninput="this.value = Math.abs(this.value)" 
+                        title="Age must be a positive number and less than 150">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        id="email" 
+                        placeholder="Enter Email" 
+                        required 
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                        title="Enter a valid email address (e.g., user@example.com)">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <div style="display: flex; gap: 5px;">
+                        <select name="countryCode" id="countryCode" required>
+                            <option value="+1">+1 (USA)</option>
+                            <option value="+91" selected>+91 (India)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <!-- Add more country codes as needed -->
+                        </select>
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            id="phone" 
+                            placeholder="Enter Phone Number" 
+                            required 
+                            pattern="[0-9]{10}" 
+                            title="Enter a valid 10-digit phone number" 
+                            maxlength="10">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea name="address" id="address" placeholder="Enter Address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input 
+                        type="text" 
+                        name="city" 
+                        id="city" 
+                        placeholder="Enter City" 
+                        required 
+                        pattern="[A-Za-z\s]+" 
+                        title="City should contain only letters and spaces">
+                </div>
+                <div class="form-group">
+                    <label>District</label>
+                    <input 
+                        type="text" 
+                        name="district" 
+                        id="district" 
+                        placeholder="Enter District" 
+                        required 
+                        pattern="[A-Za-z\s]+" 
+                        title="District should contain only letters and spaces">
+                </div>
+                <div class="form-group">
+                    <label>State</label>
+                    <input 
+                        type="text" 
+                        name="state" 
+                        id="state" 
+                        placeholder="Enter State" 
+                        required 
+                        pattern="[A-Za-z\s]+" 
+                        title="State should contain only letters and spaces">
+                </div>
+                <div class="form-group">
+                    <label>Pin Code</label>
+                    <input 
+                        type="text" 
+                        name="pin" 
+                        id="pin" 
+                        placeholder="Enter Pin Code" 
+                        required 
+                        pattern="[0-9]{6}" 
+                        title="Pin code should be a 6-digit number" 
+                        maxlength="6">
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input 
+                        type="text" 
+                        name="country" 
+                        id="country" 
+                        placeholder="Enter Country" 
+                        required 
+                        pattern="[A-Za-z\s]+" 
+                        title="Country should contain only letters and spaces">
+                </div>
+                <div class="form-group">
+                    <label>Nationality</label>
+                    <input 
+                        type="text" 
+                        name="nationality" 
+                        id="nationality" 
+                        placeholder="Enter Nationality" 
+                        required 
+                        pattern="[A-Za-z\s]+" 
+                        title="Nationality should contain only letters and spaces">
+                </div>
+                <div class="form-group file-upload">
+                    <label>Upload TRF Documents (Max 10 files, PDF/Image only)</label>
+                    <div class="upload-box">
+                        Drag your files or <input 
+                            type="file" 
+                            name="trfFiles" 
+                            id="trfFiles" 
+                            multiple 
+                            accept=".pdf, image/*" >
+                    </div>
+                </div>
+                <div class="form-group file-upload">
+                    <label>Upload History Documents (Max 10 files, PDF/Image only)</label>
+                    <div class="upload-box">
+                        Drag your files or <input 
+                            type="file" 
+                            name="historyFiles" 
+                            id="historyFiles" 
+                            multiple 
+                            accept=".pdf, image/*" >
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="reset" class="clear-btn">Clear</button>
+                    <button type="submit" class="next-btn">Next</button> <!-- Changed to submit -->
+                </div>
+            </form>
+        </section>
+    </div>
+    <script src="/public/scripts.js"></script>
+    <script src="/scripts.js"></script>
+</body>
+</html>
