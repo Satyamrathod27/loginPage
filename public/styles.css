@@ -1,7 +1,7 @@
 /* styles.css */
 :root {
-  --primary-color: #de3730ff; /* Updated to dark blue */
-  --primary-hover: #de3730ff; /* Updated to bright blue */
+  --primary-color: #6991d6; /* Updated to dark blue */
+  --primary-hover: #6991d6; /* Updated to bright blue */
   --background-color:#fff; /* Updated to very light pink */
   --white: #FFF; /* Updated to light beige */
   --shadow-color: rgba(0, 0, 0, 0.1);
@@ -409,7 +409,7 @@ button:hover {
     text-align: center;
 }
 
-/* Horizontal line styling */ /* Full width */
+/* Horizontal line styling / / Full width */
 
 /* Selected items styling */
 .selected-items {
@@ -498,7 +498,7 @@ button:hover {
 }
 
 .wide-input {
-  width: calc(3 * 380px + 10px); /* Adjust width based on the three input fields */
+  width: calc(4 * 380px + 10px); /* Adjust width based on the three input fields */
   max-width: 100%;
   padding: 8px;
   font-size: 16px;
@@ -650,7 +650,7 @@ body, html {
 }
 
 .drawer-open {
-  width: 250px;
+  width: 150px;
 }
 
 .drawer-open .user-info {
@@ -676,7 +676,7 @@ body, html {
 }
 
 .form-section.shifted {
-  margin-left: 250px;
+  margin-left: 150px;
 }
 
 .search-icon {
@@ -692,14 +692,14 @@ body, html {
     align-content: flex-end;
     align-items: center;
   /* align-content: space-around; */
-  align-items: center;
+  align-items: center;
   gap:10px;
 }
 
-nav{
+nav {
   border-radius: 10px;
   padding: 10px;  
-  background-color: var(--white); /* Updated to light beige */
+  background-color: var(--primary-color); /* Updated to light beige */
   border-bottom: #0118D8 0.5px solid; /* Updated to dark blue */ 
 }
 
