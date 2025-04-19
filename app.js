@@ -99,7 +99,7 @@ app.get('/register', (req, res) => {
       return res.status(500).send('Internal Server Error');
     }
 
-    res.render('register', { salutations: result.recordset });
+    res.render('register', { salutations: result.recordset, user: req.session.user });
   });
 });
 
@@ -139,7 +139,8 @@ app.get('/nextPage', async (req, res) => {
         // Pass payment modes and register data to nextPage.ejs
         res.render('nextPage', { 
             registerData: registerData,
-            paymentModes: paymentModesResult.recordset
+            paymentModes: paymentModesResult.recordset,
+            user: req.session.user
         });
     } catch (err) {
         console.error('Error rendering next page:', err);
@@ -398,12 +399,7 @@ app.get('/suggestPatients', async (req, res) => {
         // Fetch matching patient details from the database
         const result = await pool.request()
             .input('query', mssql.NVarChar, `%${query}%`)
-            .query(`
-                SELECT TOP 5 PatientID, PatientName, Gender, DOB, Age, EmailID, MobileNo
-                FROM Mst_Patient
-                WHERE PatientName LIKE @query
-            `);
-
+            .execute('SearchPatients'); // Use a stored procedure to search for patients
         res.json(result.recordset); // Return matching patient details
     } catch (err) {
         console.error('Error fetching patient suggestions:', err);

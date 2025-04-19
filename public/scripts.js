@@ -1107,3 +1107,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+function toggleDrawer() {
+    const drawer = document.getElementById('drawer');
+    const formSection = document.getElementById('formSection');
+    drawer.classList.toggle('drawer-open');
+    formSection.classList.toggle('shifted');
+};
+document.addEventListener('DOMContentLoaded', function() {
+    const datetimeElement = document.getElementById('datetime');
+    function updateDateTime() {
+        const now = new Date();
+        const options = { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const istTime = now.toLocaleString('en-US', options);
+        datetimeElement.textContent = `${now.toLocaleDateString()} ${istTime}`;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+});

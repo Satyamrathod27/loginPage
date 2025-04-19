@@ -1,10 +1,41 @@
+/* styles.css */
 :root {
-  --primary-color: #007bff;
-  --primary-hover: #0056b3;
-  --background-color: #f0f2f5;
-  --white: #ffffff;
+  --primary-color: #de3730ff; /* Updated to dark blue */
+  --primary-hover: #de3730ff; /* Updated to bright blue */
+  --background-color:#fff; /* Updated to very light pink */
+  --white: #FFF; /* Updated to light beige */
   --shadow-color: rgba(0, 0, 0, 0.1);
   --border-radius: 10px;
+}
+
+.menu-bar {
+
+  overflow: hidden;
+  display: flex;
+  width: 15%;
+  background-color: #f7f8f7;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.menu-bar ul li {
+  
+  padding-top: 10px; /* Add 10px padding at the top */
+  padding-bottom: 10px; /* Add 10px padding at the bottom */
+}
+
+.menu-bar ul li a {
+  color: rgb(14, 2, 2);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu-bar ul li a:hover {
+  background-color: #6b97e7;
+  border-radius: 4px;
 }
 
 * {
@@ -15,30 +46,27 @@
 }
 
 body {
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color); /* Apply the new background color */
   width: 100vw; /* Full width of the viewport */
   height: 100vh; /* Full height of the viewport */
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--background-color); /* Use the existing background color */
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
 .container {
+  display: flex;
   width: 100%; /* Full width of the screen */
-  max-width: 1200px; /* Optional: Set a max width for readability */
   height: 100%; /* Full height of the screen */
-  background: var(--white);
-  padding: 20px; /* Add some padding for spacing */
+  background: var(--white); /* Add some padding for spacing */
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Allow scrolling inside the container if content overflows */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Allow scrolling inside the container if content overflows */
 }
 
 h2 {
-  text-align: center;
+  text-align:left;
   margin-bottom: 10px; /* Reduced margin */
   font-size: 18px; /* Reduced font size */
 }
@@ -105,6 +133,9 @@ form {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .next-btn {
@@ -127,8 +158,6 @@ form {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--background-color);
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -136,7 +165,7 @@ body {
 }
 
 .login-container {
-  background: var(--white);
+  background: var(--white); /* Apply the new light beige color */
   padding: 30px;
   border-radius: var(--border-radius);
   box-shadow: 0 10px 20px var(--shadow-color);
@@ -180,7 +209,6 @@ body {
 }
 
 button {
-  width: 100%;
   padding: 12px;
   background: var(--primary-color);
   color: var(--white);
@@ -381,13 +409,7 @@ button:hover {
     text-align: center;
 }
 
-/* Horizontal line styling */
-.section-divider {
-    border: none;
-    border-top: 2px solid #ccc; /* Light gray color */
-    margin: 10px 0 20px; /* Add spacing above and below */
-    width: 100%; /* Full width */
-}
+/* Horizontal line styling */ /* Full width */
 
 /* Selected items styling */
 .selected-items {
@@ -534,4 +556,149 @@ register-btn{
 .login-container label {
   display: block;
   margin-bottom: 5px;
+}
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Drawer Menu Styling */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+.drawer-toggle {
+  background-color: #111B21;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+.drawer-content {
+  padding-top: 20px;
+}
+
+.drawer-content .user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.drawer-content .user-info span {
+  font-size: 40px;
+  color: #666;
+}
+
+.drawer-content .user-info div {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.drawer-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer-content ul li {
+  padding: 15px 10px;
+  border-bottom: 1px solid #2E3E46;
+  text-align: center;
+}
+
+.drawer-content ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.drawer-content ul li a i {
+  font-size: 24px;
+}
+
+.drawer-content ul li a span {
+  display: none;
+}
+
+.drawer-content ul li a:hover {
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+
+.drawer-open {
+  width: 250px;
+}
+
+.drawer-open .user-info {
+  flex-direction: row;
+}
+
+.drawer-open .user-info div {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.drawer-open ul li a span {
+  display: inline;
+}
+
+/* Form Section Styling */
+.form-section {
+  padding: 20px;
+  overflow-y: auto;
+  height: 90%;
+  margin-left: 50px;
+  transition: margin-left 0.3s ease;
+}
+
+.form-section.shifted {
+  margin-left: 250px;
+}
+
+.search-icon {
+  font-size: 24px; /* Adjust the size as needed */
+  color: #333; /* Adjust the color as needed */
+  /* Add other styles as desired */
+}
+
+.user-info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-items: center;
+  /* align-content: space-around; */
+  align-items: center;
+  gap:10px;
+}
+
+nav{
+  border-radius: 10px;
+  padding: 10px;  
+  background-color: var(--white); /* Updated to light beige */
+  border-bottom: #0118D8 0.5px solid; /* Updated to dark blue */ 
 }
