@@ -1125,3 +1125,39 @@ document.addEventListener('DOMContentLoaded', function() {
     updateDateTime();
     setInterval(updateDateTime, 1000);
 });
+
+// Generate random color for the initials circle
+document.addEventListener('DOMContentLoaded', () => {
+    const userInitialsElement = document.getElementById('userInitials');
+    const userName = document.getElementById('userName').textContent.trim();
+
+    // Extract initials from the username
+    const initials = userName
+        .split(' ')
+        .map(name => name[0])
+        .join('')
+        .toUpperCase();
+
+    // Generate a random color
+    const randomColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
+
+    // Set the initials and background color
+    userInitialsElement.textContent = initials;
+    userInitialsElement.style.backgroundColor = randomColor;
+});
+
+// Add functionality to toggle between dark mode and light mode
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggleButton = document.getElementById('themeToggle');
+
+    themeToggleButton.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme); // Save the theme preference
+    });
+
+    // Load the saved theme preference on page load
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+});

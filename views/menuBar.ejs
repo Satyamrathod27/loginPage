@@ -1,13 +1,19 @@
- <!-- Drawer Menu -->
- <aside class="drawer" id="drawer">
-    <button class="drawer-toggle" onclick="toggleDrawer()">☰</button>
+<!-- Add Bootstrap Icons -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+<!-- Drawer Menu -->
+<aside class="drawer" id="drawer">
+    <button class="drawer-toggle" onclick="toggleDrawer()">
+        <i class="bi bi-list"></i>
+    </button>
     <div class="drawer-content">
         <ul>
-            <li><a href="/Search"><i class="fas fa-search"></i><span>Search</span></a></li>
-            <li><a href="/register"><i class="fas fa-user-plus"></i><span>Register</span></a></li>
-            <li><a href="/Accession"><i class="fas fa-users"></i><span>Accession</span></a></li>
-            <li><a href="/Result"><i class="fas fa-sign-out-alt"></i><span>Result</span></a></li>
-
+            <li><a href="/Search"><i class="bi bi-search"></i><span>Search</span></a></li>
+            <li><a href="/register"><i class="bi bi-person-plus"></i><span>Register</span></a></li>
+            <li><a href="/Accession"><i class="bi bi-people"></i><span>Accession</span></a></li>
+            <li><a href="/Result"><i class="bi bi-box-arrow-right"></i><span>Result</span></a></li>
         </ul>
     </div>
 </aside>

@@ -1,11 +1,29 @@
 /* styles.css */
+/* Updated Color Variables for Modern Healthcare Theme */
 :root {
-  --primary-color: #6991d6; /* Updated to dark blue */
-  --primary-hover: #6991d6; /* Updated to bright blue */
-  --background-color:#fff; /* Updated to very light pink */
-  --white: #FFF; /* Updated to light beige */
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --border-radius: 10px;
+  --primary-color: #007B8F; /* Main navbar background, primary buttons */
+  --primary-hover: #005F6E; /* Darker teal for hover effects */
+  --secondary-color: #4DB6AC; /* Section titles, hover effects, secondary buttons */
+  --accent-color: #FFC107; /* CTAs, icons, alert banners */
+  --background-color: #F4F7F9; /* Whole page body, form background */
+  --surface-color: #FFFFFF; /* Form containers, cards, modal popups */
+  --text-primary: #212529; /* Main headings, form labels, paragraph text */
+  --text-muted: #6C757D; /* Placeholder text, sublabels, timestamps */
+  --error-color: #D32F2F; /* Form validation messages, error chips */
+  --success-color: #388E3C; /* Success messages, status chips */
+}
+
+[data-theme="dark"] {
+  --primary-color: #1E1E2F;
+  --primary-hover: #2C2C3E;
+  --secondary-color: #3A3A4F;
+  --accent-color: #FF7043;
+  --background-color: #121212;
+  --surface-color: #1E1E1E;
+  --text-primary: #E0E0E0;
+  --text-muted: #B0B0B0;
+  --error-color: #CF6679;
+  --success-color: #81C784;
 }
 
 .menu-bar {
@@ -19,7 +37,6 @@
   flex-wrap: wrap;
   align-items: center;
 }
-
 
 .menu-bar ul li {
   
@@ -45,14 +62,19 @@
   font-family: Arial, sans-serif;
 }
 
-body {
-  justify-content: center;
-  align-items: center;
+/* General Body Styling */
+body, html {
+  font-family: 'Poppins', sans-serif; /* Modern and clean font */
+  color: var(--text-primary); /* Use the updated text color */
   background-color: var(--background-color); /* Apply the new background color */
-  width: 100vw; /* Full width of the viewport */
-  height: 100vh; /* Full height of the viewport */
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+body {
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
   overflow: hidden;
 }
 
@@ -60,7 +82,7 @@ body {
   display: flex;
   width: 100%; /* Full width of the screen */
   height: 100%; /* Full height of the screen */
-  background: var(--white); /* Add some padding for spacing */
+  background: var(--surface-color); /* Add some padding for spacing */
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Allow scrolling inside the container if content overflows */
 }
@@ -71,10 +93,15 @@ h2 {
   font-size: 18px; /* Reduced font size */
 }
 
+/* Form Styling */
 form {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* Reduced gap */
+  gap: 10px;
+  background-color: var(--surface-color); /* White background for forms */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .form-group {
@@ -84,17 +111,28 @@ form {
 }
 
 .form-group label {
-  font-size: 12px; /* Reduced font size */
-  margin-bottom: 3px; /* Reduced margin */
+  font-size: 14px;
+  color: var(--text-muted); /* Use muted text color for labels */
+  margin-bottom: 5px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  padding: 6px; /* Reduced padding */
-  border: 1px solid #ccc;
+  padding: 10px;
+  border: 1px solid var(--secondary-color); /* Light teal border */
   border-radius: 5px;
-  font-size: 12px; /* Reduced font size */
+  font-size: 14px;
+  color: var(--text-primary); /* Use primary text color for inputs */
+  background-color: var(--surface-color); /* White background for inputs */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color); /* Highlight border on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 143, 0.3); /* Subtle teal glow */
 }
 
 .form-group textarea {
@@ -129,47 +167,54 @@ form {
 }
 
 .form-actions {
-  width: 100%;
   display: flex;
   justify-content: flex-start;
   gap: 10px;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
+  margin-left: auto;
 }
 
 .next-btn {
-  background: blue;
-  color: white;
-  padding: 8px 15px; /* Reduced padding */
+  background-color: var(--primary-color); /* Primary color for buttons */
+  color: var(--text-primary); /* White text for contrast */
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px; /* Reduced font size */
+  font-size: 14px;
+  margin-left: auto; /* Align buttons to the right */
+  display: inline-block;
+}
+
+.next-btn:hover {
+  background-color: var(--primary-hover); /* Darker teal on hover */
 }
 
 .clear-btn {
-  background: none;
+  background-color: var(--primary-color); /* Primary color for buttons */
+  color: var(--text-primary); /* White text for contrast */
+  padding: 10px 20px;
   border: none;
-  color: red;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 12px; /* Reduced font size */
+  font-size: 14px;
+  margin-left: auto; /* Align buttons to the right */
+  display: inline-block;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+.clear-btn:hover {
+  background-color: var(--primary-hover); /* Darker teal on hover */
 }
 
+/* Login Container */
 .login-container {
-  background: var(--white); /* Apply the new light beige color */
+  background: var(--surface-color); /* White background for login */
   padding: 30px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 20px var(--shadow-color);
-  border:1px solid #ccc;; /* Updated to dark blue */
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--secondary-color); /* Light teal border */
   width: 350px;
   text-align: center;
 }
@@ -178,7 +223,7 @@ body {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--primary-color); /* Primary color for headings */
 }
 
 .form-group {
@@ -186,46 +231,24 @@ body {
   text-align: left;
 }
 
-.form-group label {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  display: block;
-  color: #333;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.form-group input:focus {
-  border-color: var(--primary-color);
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
 button {
-  padding: 12px;
-  background: var(--primary-color);
-  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  padding: 10px 20px;
+  background-color: var(--primary-color); /* Primary color for buttons */
+  color: var(--text-primary); /* White text for contrast */
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 button:hover {
-  background: var(--primary-hover);
+  background-color: var(--primary-hover); /* Darker teal on hover */
 }
 
 .error {
-  color: red;
+  color: var(--error-color);
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -279,13 +302,13 @@ button:hover {
 /* Suggestions container styles */
 .suggestions-container {
     position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: var(--surface-color); /* White background for suggestions */
+    border: 1px solid var(--secondary-color); /* Light teal border */
     z-index: 1000;
     display: none;
     max-height: 150px;
     overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     width: 100%; /* Ensure the container is as wide as the input field */
     margin-top: 5px; /* Add some space between the input field and the suggestions */
 }
@@ -298,7 +321,8 @@ button:hover {
 }
 
 .suggestion-item:hover {
-    background-color: #f0f0f0;
+    background-color: var(--primary-hover); /* Darker teal hover effect */
+    color: var(--surface-color); /* White text on hover */
 }
 
 /* Selected items container styles */
@@ -352,7 +376,7 @@ button:hover {
 
 /* Error message styling */
 .error-msg {
-    color: red;
+    color: var(--error-color);
     font-size: 12px;
     margin-top: 5px;
     display: block;
@@ -360,7 +384,7 @@ button:hover {
 
 /* Highlight fields with errors */
 .error-border {
-    border: 2px solid red;
+    border: 2px solid var(--error-color);
 }
 
 /* Search input styling */
@@ -380,7 +404,7 @@ button:hover {
     top: 100%; /* Position it directly below the input field */
     left: 0; /* Align it with the left edge of the input field */
     z-index: 1000; /* Ensure it appears above other elements */
-    background-color: #fff; /* White background for suggestions */
+    background-color: var(--surface-color); /* White background for suggestions */
     border: 1px solid #ccc; /* Light gray border */
     border-radius: 5px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -563,36 +587,29 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Use a modern and clean font */
 }
 
 /* Drawer Menu Styling */
 .drawer {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 50px;
+  width: 50px; /* Compact width for icon-only view */
   height: 100%;
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--primary-color); /* Primary color for the drawer */
+  color: var(--text-primary); /* White text for contrast */
   overflow: hidden;
   transition: width 0.3s ease;
   z-index: 1000;
-  border-radius: 10px;
 }
 
 .drawer-toggle {
-  background-color: var(--primary-color);
-  color: white;
+  margin-left: 6px;
+  background: none;
+  color: var(--text-primary);
   border: none;
-  font-size: 18px;
+  font-size: 18px; /* Adjust icon size */
   cursor: pointer;
-  border-radius: 25px;
-  padding-left: 18px;
-}
-
-.drawer-content {
-  padding-top: 20px;
+  padding: 10px;
 }
 
 .drawer-content .user-info {
@@ -619,36 +636,31 @@ body, html {
 }
 
 .drawer-content ul li {
-  padding: 15px 10px;
-  border-bottom: 1px solid #2E3E46;
+  padding: 1rem 1rem; /* Adjust padding for compact view */
   text-align: center;
 }
 
 .drawer-content ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 5px;
+  gap: 10px; /* Add spacing between icon and text */
+  color: var(--text-primary); /* White text for drawer links */
+  text-decoration: none;
+  font-size: 14px; /* Adjust text size */
 }
 
 .drawer-content ul li a i {
-  font-size: 24px;
-}
-
-.drawer-content ul li a span {
-  display: none;
+  font-size: 20px; /* Adjust icon size */
+  color: var(--accent-color); /* Use accent color for icons */
 }
 
 .drawer-content ul li a:hover {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color); /* Light teal hover effect */
   border-radius: 5px;
 }
 
 .drawer-open {
-  width: 150px;
+  width: 150px; /* Expanded width when toggled */
 }
 
 .drawer-open .user-info {
@@ -661,7 +673,7 @@ body, html {
 }
 
 .drawer-open ul li a span {
-  display: inline;
+  display: inline; /* Show text when drawer is open */
 }
 
 /* Form Section Styling */
@@ -695,10 +707,42 @@ body, html {
   gap:10px;
 }
 
+/* Styling for the user initials circle */
+.user-info .user-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-primary); /* White text for initials */
+  background-color: var(--accent-color); /* Accent color for initials background */
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+/* Navbar Styling */
 nav {
-  border-radius: 10px;
-  padding: 10px;  
-  background-color: var(--primary-color); /* Updated to light beige */ /* Updated to dark blue */ 
+  display: flex;
+  height: 60px;
+  padding: 10px;
+  background-color: var(--primary-color); /* Use primary color for the navbar */
+  color: var(--text-primary); /* White text for contrast */
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-info i {
+  font-size: 24px; /* Adjust icon size */
+  color: #ecf0f1; /* Light icon color */
+}
+
+.user-info p {
+  font-size: 16px; /* Adjust font size */
+  color: #ecf0f1; /* Light text color */
+  margin: 0;
 }
 
 #login-page{
