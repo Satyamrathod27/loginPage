@@ -577,21 +577,18 @@ body, html {
   color: white;
   overflow: hidden;
   transition: width 0.3s ease;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   border-radius: 10px;
 }
 
 .drawer-toggle {
-  background-color: #111B21;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 10px;
   font-size: 18px;
   cursor: pointer;
   border-radius: 25px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 10px;
+  padding-left: 18px;
 }
 
 .drawer-content {
@@ -669,6 +666,7 @@ body, html {
 
 /* Form Section Styling */
 .form-section {
+  border-radius: var(--border-radius);
   padding: 20px;
   overflow-y: auto;
   height: 90%;
@@ -700,8 +698,7 @@ body, html {
 nav {
   border-radius: 10px;
   padding: 10px;  
-  background-color: var(--primary-color); /* Updated to light beige */
-  border-bottom: #0118D8 0.5px solid; /* Updated to dark blue */ 
+  background-color: var(--primary-color); /* Updated to light beige */ /* Updated to dark blue */ 
 }
 
 #login-page{
